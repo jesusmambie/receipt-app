@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(printf:*)",
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(rspec:*)",
+      "mcp__playwright"
+    ],
+    "deny": []
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 $CLAUDE_PROJECT_DIR/.claude/hooks/protect-dirs.py"
+          }
+        ]
+      }
+    ]
+  }
+}
